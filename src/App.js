@@ -1,12 +1,19 @@
+import React from 'react'
 import './App.css'
 import NavBar from './components/NavBar'
-import Seachbar from './components/SearchBar'
+import Searchbar from './components/SearchBar'
+import { searchPokemon } from './api'
 
 function App() {
+  const onSearchHandler = async (pokemon) => {
+    const result = await searchPokemon(pokemon)
+    console.log('pokemon ', result)
+  }
+
   return (
     <div>
       <NavBar />
-      <Seachbar />
+      <Searchbar onSearch={onSearchHandler} />
       <div className="App"></div>
     </div>
   )
