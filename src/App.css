@@ -104,9 +104,14 @@ nav-img {
 }
 
 .pokemon-type-text {
- 
   margin-right: 10px;
   text-transform: capitalize;
+}
+
+.pagination-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .App {

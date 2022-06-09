@@ -3,22 +3,28 @@ import Pagination from './Pagination'
 import Pokemon from './Pokemon'
 
 const Pokedex = props => {
-  const { pokemons, loading, page, totalPages} = props
+  const { pokemons, loading, page, setPage, totalPages } = props
   const onLeftClickHandler = () => {
-    console.log("volta")
+    if (page > 0) {
+      setPage(page - 1)
+      console.log("volta")
+    }
   }
   const onRightClickHandler = () => {
-    console.log("vai")
+    if (page + 1 !== totalPages) {
+      setPage(page + 1)
+      console.log("vai")
+    }
   }
   return (
     <div>
       <div className="pokedex-header">
         <h1>Pokedex</h1>
-        <Pagination 
-            page = {page+1}
-            totalPages = {totalPages}
-            onLeftClick= {onLeftClickHandler}  
-            onRightClick= {onRightClickHandler}       
+        <Pagination
+          page={page + 1}
+          totalPages={totalPages}
+          onLeftClick={onLeftClickHandler}
+          onRightClick={onRightClickHandler}
         />
       </div>
       {loading ? (
